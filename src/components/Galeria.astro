@@ -1,0 +1,33 @@
+<section class="mt-10 flex justify-center mb-20">
+    <div class="relative mx-20">
+        <button class="bg-page-200 rounded-full hover:scale-110 transition-all absolute top-[50%] left-3"><img src="/left.svg"></button>
+        <button id="right" class="bg-page-200 rounded-full hover:scale-110 transition-all absolute top-[50%] right-3"><img src="/right.svg"></button>
+        <img class="-z-50" id="img" src="/Rutas/Santa_Maria_de_Gallecs_1.png" alt="Foto de Santa Maria de Gallecs">
+    </div>
+</section>
+<script type="module">
+    const derecha = document.getElementById('right')
+    const izquierda = document.getElementById('left')
+    const img = document.getElementById('img')
+    const imagenes = ['/Rutas/Santa_Maria_de_Gallecs_1.png', '/Rutas/Vilanova_del_Valles_1.png', '/Rutas/Santa_Maria_de_Gallecs_2.png']
+    let img_actual = 0
+
+    derecha.addEventListener('click', function() {
+        if (img_actual < imagenes.length) {
+            img_actual = img_actual + 1
+        }
+        if (img_actual >= imagenes.length) {
+            img_actual = 0
+        }
+        img.src = imagenes[img_actual]
+    })
+    izquierda.addEventListener('click', function() {
+        if (img_actual <= 0) {
+            img_actual = imagenes.length
+        }
+        if (img_actual > 0) {
+            img_actual = img_actual - 1
+        }
+        img.src = imagenes[img_actual]
+    })
+</script>

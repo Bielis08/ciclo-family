@@ -2,6 +2,7 @@
 import ViewTransitions from 'astro/components/ViewTransitions.astro';
 import Banner from '../components/Banner.astro';
 import Footer from '../components/Footer.astro';
+import BtnSubir from '../components/BtnSubir.astro';
 
 import '@fontsource-variable/montserrat';
 
@@ -24,6 +25,7 @@ const { title } = Astro.props;
 	<body>
 		<Banner />
 		<slot />
+		<BtnSubir />
 		<Footer />
 	</body>
 	<ViewTransitions />

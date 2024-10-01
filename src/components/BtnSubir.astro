@@ -1,0 +1,13 @@
+<section class="fixed bottom-6 right-6 bg-page-300 rounded-2xl w-16 h-16 hover:scale-110 transition-all">
+    <button id="subir"><img src="/top.svg"></button>
+</section>
+<script type="module">
+    const subir = document.getElementById('subir')
+
+    subir.addEventListener('click', function() {
+        window.scrollTo({
+                top: 0, 
+                behavior: 'smooth'
+            });
+    })
+</script>
