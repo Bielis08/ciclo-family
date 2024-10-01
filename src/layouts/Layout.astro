@@ -4,7 +4,6 @@ import Banner from '../components/Banner.astro';
 import Footer from '../components/Footer.astro';
 import BtnSubir from '../components/BtnSubir.astro';
 import  SpeedInsights  from "@vercel/speed-insights/astro"
-import { Analytics } from '@vercel/analytics/react';
 
 import '@fontsource-variable/montserrat';
 
@@ -29,7 +28,6 @@ const { title } = Astro.props;
 		<slot />
 		<BtnSubir />
 		<Footer />
-		<Analytics />
 		<SpeedInsights />
 	</body>
 	<ViewTransitions />
