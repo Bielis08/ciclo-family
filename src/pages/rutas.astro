@@ -1,11 +1,45 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import NavBar from '../components/NavBar.astro';
+import { getCollection } from 'astro:content';
+
+const rutas = await getCollection('rutas');
+console.log(rutas)
 ---
 
-<Layout title="Ciclo Family | Rutas por el Vallès">
+<Layout title="Rutas por el Vallès">
 	<NavBar />
-	<main>
-        Rutas
+	<main class="text-center">
+        <h1 class="text-5xl my-32">Rutas</h1>
 	</main>
+
+	<section class="flex justify-around my-28">
+		<div class="grid gap-16 grid-cols-1 xl:grid-cols-2">
+			{
+				rutas.map(ruta => {
+					const { slug, data, body } = ruta
+					const { titulo, portada, distancia, desnivel, dificultad } = data
+
+					return (
+						<article class="mx-6 items-center py-8 px-12 grid gap-8 grid-cols-1 md:grid-cols-2 max-w-[350px] md:max-w-[680px] bg-page-300 rounded-[70px]">
+							<div class="text-center">
+								<div class="mb-6 rounded-3xl mx-auto px-4 py-3 bg-page-500 hover:scale-105 cursor-pointer transition-all max-w-96">
+									<a class="font-bold text-xl md:text-2xl mx-auto" href={`/rutas/${slug}`}>{titulo}</a>
+								</div>
+								<p class="text-sm md:text-base font-medium">{body}</p>
+							</div>
+							<div>
+								<img class="rounded-2xl w-96 mb-6 mx-auto" src={`/Rutas/${portada}`} alt={`Foto de ${titulo}`}>
+								<div class="flex justify-around max-w-72 mx-auto font-bold text-base md:text-lg">
+									<span>{distancia}</span>
+									<span>{desnivel}</span>
+									<span>{dificultad}</span>
+								</div>
+							</div>
+						</article>
+					)
+				})
+			}
+		</div>
+	</section>
 </Layout>
